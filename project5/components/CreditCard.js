@@ -1,73 +1,122 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 
-const CreditCard = ({ job }) => {
+const CreditCard = () => {
   return (
-    <View style={[styles.card, { backgroundColor: job.backgroundColor }]}>
-      <View style={styles.cardContent}>
-        <Image source={job.image} style={styles.logo} />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{job.title}</Text>
-          <Text style={styles.company}>{job.company}</Text>
+    <View style={styles.bg}>
+    <ImageBackground 
+    source={require('../assets/images/globe.png')} 
+    style={styles.card}
+    imageStyle={styles.cardBackground}
+  >
+    <View style={styles.card}>
+      <View style={styles.chipContainer}>
+        <Image source={require('../assets/images/chip.png')} style={styles.chip} />
+        <Image source={require('../assets/images/wifi-01.png')} style={styles.chip} />
+      </View>
+      <View style={styles.cardNumberContainer}>
+        <Text style={styles.cardNumber}>4562</Text>
+        <Text style={styles.cardNumber}>1122</Text>
+        <Text style={styles.cardNumber}>4595</Text>
+        <Text style={styles.cardNumber}>7852</Text>
+      </View>
+      <View style={styles.cardInfoContainer}>
+        <View style={styles.sec}>
+          <View>
+            <Text style={styles.cardname}>AR Jonson</Text>
+            <Text style={styles.cardLabel}>Expiry Date</Text>
+            <Text style={styles.cardDetail}>24/2000</Text>
+          </View>
+          <View style={styles.detail}>
+            <Text style={styles.cardname}></Text>
+            <Text style={styles.cardLabel}>CVV</Text>
+            <Text style={styles.cardDetail}>6986</Text>
+          </View>
         </View>
+        <View style={styles.mastercardContainer}>
+        <Image source={require('../assets/images/mastercard.png')} style={styles.mastercardLogo} />
+        <Text style={styles.mastercardText}>Mastercard</Text>
       </View>
-      <View style={styles.alignmain}>
-        <Text style={styles.salary}>{job.salary}</Text>
-        <Text style={styles.location}>{job.location}</Text>
       </View>
+    </View>
+    </ImageBackground>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  bg:{
+    marginBottom: 20,
+    backgroundColor: '#27273d',
+    borderRadius: 15,
+    width: '100%',
+  },
   card: {
     borderRadius: 18,
-    padding: 10,
-    maxWidth: '100%',
+    padding: 8,
     height: 200,
     justifyContent: 'center',
-    marginBottom: 30,
+    overflow: 'hidden',
   },
-  cardContent: {
+  sec:{
     flexDirection: 'row',
-    alignItems: 'center',
-  },
-  logo: {
-    width: 50,
-    height: 50,
-    borderRadius: 8,
-    marginRight: 20,
-  },
-  alignmain: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 35,
     justifyContent: 'space-between',
   },
-  textContainer: {
-    flex: 1,
+  detail:{
+    paddingLeft: 30,
   },
-  title: {
-    fontSize: 20,
+  chipContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  chip: {
+    width: 30,
+    height: 20,
+  },
+  cardNumberContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  cardNumber: {
+    fontSize: 27,
     fontWeight: 'bold',
     color: '#FFF',
-    marginBottom: 5,
   },
-  company: {
+  cardInfoContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 10,
+  },
+  cardLabel: {
+    fontSize: 12,
+    color: '#AAA',
+  },
+  cardname: {
+    fontSize: 15,
+    color: '#fff',
+  },
+  cardDetail: {
     fontSize: 16,
-    color: '#f2f2f3',
-    marginBottom: 5,
-  },
-  salary: {
-    fontSize: 18,
     color: '#FFF',
-    marginTop: 18,
     fontWeight: 'bold',
+    marginTop: 5,
   },
-  location: {
-    fontSize: 18,
+  mastercardContainer: {
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  mastercardLogo: {
+    width: 40,
+    height: 40,
+    marginRight: 10,
+  },
+  mastercardText: {
+    fontSize: 14,
     color: '#FFF',
-    marginTop: 18,
     fontWeight: 'bold',
   },
 });
