@@ -52,9 +52,3 @@ To run the app locally:
 - **React Native**: Building cross-platform mobile applications.
 - **Expo**: Development environment and tooling.
 - **React Navigation**: Navigation and routing for React Native apps.
-
-## Future Enhancements
-
-- Implement more themes and customization options.
-- Enhance accessibility features.
-- Add more interactive data visualization in the Statistics screen.
